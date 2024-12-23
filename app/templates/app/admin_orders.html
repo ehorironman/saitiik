@@ -1,0 +1,55 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+
+<h1>Заказы</h1>
+<table class="table-orders">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Статус</th>
+            <th>Стоимость</th>
+            <th>Номер клиента</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.get_status_display }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>{{ order.user.id }}</td>
+            <!--<td>
+                <form method="post" action="{% url 'admin_cancel_order' order.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Отменить</button>
+                </form>
+                <a href="{% url 'admin_order_details' order.id %}">Детали заказа</a>
+            </td>-->
+            <td>
+                {% if user.groups.all.0.name == 'Менеджер' or user.is_superuser %}
+                <form method="post" action="{% url 'update_order_status' order.id %}">
+                    {% csrf_token %}
+                    <select name="status">
+                        {% for choice in order.STATUS_CHOICES %}
+                        <option value="{{ choice.0 }}" {% if choice.0 == order.status %}selected{% endif %}>{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn-primary">Обновить статус</button>
+                </form>
+                <form method="post" action="{% url 'admin_cancel_order' order.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-danger">Отменить</button>
+                </form>
+                <a href="{% url 'admin_order_details' order.id %}" class="back-link">Детали заказа</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

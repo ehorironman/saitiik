@@ -1,0 +1,402 @@
+body {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    /* */
+    margin: 0;
+    padding: 0; /*Убирает внешние и внутренние отступы.*/
+    font-family: 'Roboto', sans-serif; /*Устанавливает шрифт для всего документа.*/
+    overflow-x: hidden; /*Скрывает горизонтальную прокрутку.*/
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
+}
+
+/* Установите отступы, чтобы содержимое не попадало по краям */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Установите ширину для элементов ввода формы, так как по умолчанию они имеют ширину 100% */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* стили для помощников по проверке */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/*     */
+:root {
+    --autumn-orange: #D2691E;
+    --autumn-brown: #8B4513;
+    --autumn-yellow: #DAA520;
+    --autumn-red: #B22222;
+    --cream: #FFF8DC;
+}
+
+body, html {
+    margin: 0;
+    padding: 0; /*Убирает внешние и внутренние отступы.*/
+    font-family: 'Roboto', sans-serif; /*Устанавливает шрифт для всего документа.*/
+    background-image: url('background.jpg');
+    color: black; /*Устанавливает цвет текста.*/
+    overflow-x: hidden; /*Скрывает горизонтальную прокрутку.*/
+}
+
+.header {
+    height: 100vh; /*Устанавливает высоту заголовка равной высоте экрана.*/
+    background: linear-gradient(135deg, var(--autumn-orange), var(--autumn-red));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /*Центрирует содержимое по вертикали и горизонтали.(и выше)*/
+    position: relative;
+    overflow: hidden; /*Позволяет использовать абсолютное позиционирование внутри заголовка и скрывает переполнение.*/
+}
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+.highlight-text {
+    font-weight: bold;
+    color: var(--autumn-orange);
+}
+
+
+/* Стили для навигационной панели */
+
+.navbar {
+    min-height: 80px; /* Уменьшаем высоту навигационной панели */
+}
+
+.navbar-fixed-top {
+    position: sticky;
+    top: 0;
+    margin-top: -10px;
+}
+
+.navbar-brand {
+    padding: 0; /* Убираем внутренние отступы */
+    height: 80px; /* Высота блока с логотипом */
+    display: flex;
+    align-items: center;
+}
+
+    .navbar-brand img {
+        height: auto; /* Сохраняем пропорции логотипа */
+        max-height: 60px; /* Уменьшаем высоту логотипа, сохраняя пропорции */
+        display: inline-block; /* Убедимся, что изображение отображается корректно */
+    }
+
+.navbar-nav > li > a {
+    padding-top: 20px; /* Уменьшаем отступы сверху для ссылок */
+    padding-bottom: 10px; /* Уменьшаем отступы для ссылок */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--cream);
+    margin: 1rem 0; /*Устанавливает внешние отступы.*/
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/*.nav navbar-nav navbar-right {
+    width: auto;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}*/
+
+.navbar-btn {
+    font-size: 20px;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #000 !important;
+    width: auto;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/*на главной странице было голубое окошко*/
+.jumbotron {
+    padding: 60px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 400;
+    color: white;
+    line-height: 2.1428571435;
+    background-color: black;
+}
+
+.black-text {
+    color: black;
+}
+
+.white-text {
+    color: white;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: black;
+    border-color: #B22222;
+}
+
+.back-link {
+    color: orangered;
+}
+
+    .back-link:hover {
+        color: firebrick; /* или другой цвет, который вы хотите использовать при наведении */
+    }
+
+
+h5 { /*для авторов комментариев*/
+    color: #DAA520;
+}
+
+.carousel-inner .item {  /*для карусели*/
+    text-align: center;
+}
+
+    .carousel-inner .item img {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+.custom-img {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 2px 0px 10px 4px;
+    float: right; /* Выравнивание по правому краю */
+}
+
+    /*position: relative;*/ /* Добавляем position: relative для правильного позиционирования ::before */
+    /*z-index: 1;*/ /* Устанавливаем z-index для текста */
+/*}
+
+    .jumbotron::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url('C:/Users/HP/Desktop/Django/DjangoWebProject1/DjangoWebProject1/app/static/app/content/главная.jpg');*/ /* Указываем путь к вашему изображению */
+        /*background-size: cover;*/ /* Масштабируем изображение, чтобы оно покрывало весь блок */
+        /*background-position: center;*/ /* Центрируем изображение */
+        /*opacity: 0.5;*/ /* Устанавливаем прозрачность */
+        /*z-index: -1;*/ /* Устанавливаем z-index для фонового изображения */
+    /*}*/
+
+/*Стили для карточек товаров:*/
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: black;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 300px;
+    margin: 10px;
+    color: white;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.product-description {
+    font-size: 1rem;
+    margin: 10px;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    margin: 10px;
+    text-align: center;
+    color: red;
+}
+
+.add-to-cart-btn {
+    color: #fff;
+    background-color: black;
+    border-color: #B22222;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 4px;
+}
+
+    .add-to-cart-btn:hover {
+        background-color: var(--autumn-red);
+    }
+
+
+.messages {
+    margin: 20px 0;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.container-custom {
+    margin-top: 20px;
+    color: white;
+    background-color: black;
+    height: 1200px;
+}
+
+.container-order {
+    margin-top: 20px;
+    color: white;
+    background-color: black;
+    height: auto; /* Автоматическая высота */
+}
+
+.container-blogpost {
+    margin-top: 20px;
+    color: white;
+    background-color: black;
+    /* Убираем высоту */
+    height: auto;
+    overflow: hidden; /* Скрываем всё, что выходит за пределы контейнера */
+    /* Важно: display: flex или display: grid */
+    display: flex;
+    flex-direction: column; /* Или flex-direction: row; в зависимости от расположения */
+}
+
+    .container-blogpost > * {
+        /* Дополнительные стили, которые могут быть необходимы для размещения содержимого */
+        padding: 10px; /* Добавляем отступы для лучшего вида */
+    }
+
+.container-mini {
+    margin-top: 20px;
+    color: white;
+    background-color: black;
+}
+
+.table-orders {
+    background-color: black;
+    color: white;
+}
+
+.categories {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px 0; /* Space above and below */
+}
+
+    .categories h2 {
+        color: #333; /* Dark gray heading text */
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eee; /* Light border under heading */
+        padding-bottom: 5px;
+    }
+
+    .categories ul {
+        list-style: none; /* Remove default bullets */
+        padding: 0;
+    }
+
+    .categories li {
+        margin-bottom: 8px; /* Space between list items */
+    }
+
+    .categories a.back-link {
+        display: inline-block; /* Make the link a block */
+        padding: 10px 15px; /* Padding for spacing */
+        text-decoration: none; /* Remove default underline */
+        background-color: #007bff; /* Blue background for link */
+        color: white; /* White link text */
+        border-radius: 4px; /* Rounded corners */
+        transition: background-color 0.3s ease; /* Smooth hover animation */
+    }
+
+        .categories a.back-link:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }

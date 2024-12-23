@@ -1,0 +1,21 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+    <h1>Детали заказа</h1>
+    <p>Номер заказа: {{ order.id }}</p>
+    <p>Статус: {{ order.get_status_display }}</p>
+    <p>Стоимость: {{ order.total_price }}</p>
+    <h2>Товары в заказе:</h2>
+    <ul>
+        {% for item in order_items %}
+        <li>{{ item.product.title }} - {{ item.quantity }} x {{ item.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'my_orders' %}">Вернуться к моим заказам</a>
+
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+<title>Оформление заказа</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0px;
+    }
+
+    .form-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .form-container h2 {
+            text-align: center;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .form-container button:hover {
+                background-color: #45a049;
+            }
+
+    .message {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #8B4513;
+    }
+
+    .error-message {
+        color: red;
+        display: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="form-container">
+    <h2>Оформление заказа</h2>
+    <form id="checkout-form">
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div class="error-message" id="phone-error">Неправильно введен номер телефона</div>
+
+        <button type="button" onclick="submitForm()">Заказать</button>
+    </form>
+    <div class="message" id="message" style="display: none;">Мы свяжемся с вами в ближайшее время!</div>
+</div>
+
+<script>
+    document.getElementById('phone').addEventListener('input', function () {
+        var phoneInput = this.value;
+        var phoneError = document.getElementById('phone-error');
+
+        if (/[^0-9]/.test(phoneInput)) {
+            phoneError.style.display = 'block';
+        } else {
+            phoneError.style.display = 'none';
+        }
+    });
+
+    function submitForm() {
+        var phoneInput = document.getElementById('phone').value;
+        var phoneError = document.getElementById('phone-error');
+
+        if (/[^0-9]/.test(phoneInput)) {
+            phoneError.style.display = 'block';
+            return;
+        }
+
+        document.getElementById('message').style.display = 'block';
+        document.getElementById('checkout-form').style.display = 'none';
+    }
+</script>
+
+{% endblock %}
